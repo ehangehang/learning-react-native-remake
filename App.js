@@ -1,29 +1,43 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, TouchableHighlight } from 'react-native';
 import Title from './Components/Title';
 
 export default class App extends React.Component {
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
   render() {
     return (
-      <View style={styles.ceria}>
-      <Title judul="BIODATA"/>
-      <Title judul="LOGIN"/>
-      <Title judul="FORM"/>
-        <Text>Nama : Rayhan Suryatama Raharyawhedi</Text>
-        <Text>Kelas : XI RPL 4</Text>
-        <Text>Absen : 26</Text>
-		<Image 
-		style={{height:200, width:200}}
-		source={require('./ehang.jpg')}/>
+      <View style={styles.ceria}>        
+        <Text style={styles.judul}>Facebook</Text>
+        <TextInput
+        style={styles.huruf}
+        placeholder='username'/>
+        <TextInput
+        style={styles.huruf}
+        secureTextEntry={true}
+        placeholder='password'
+        maxLength={12}/>
+        <Button
+        onPress={this._onPressButton}
+        title="Log In"
+        color="#8b9dc3"/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  judul:{
+    height:40,
+    color:'#dfe3ee'
+  },
+  huruf:{
+    color:'#dfe3ee',
+  },
   ceria: {
     flex: 1,
-    backgroundColor: '#c1d4ee',
+    backgroundColor: '#3b5998',
     alignItems: 'center',
     justifyContent: 'center',
   },
